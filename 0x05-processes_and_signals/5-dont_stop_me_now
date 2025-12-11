@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# File: 5-dont_stop_me_now
+# Description: Finds and terminates the 4-to_infinity_and_beyond process.
+
+# 1. Find the PID of the running script.
+# pgrep: searches for processes based on name and returns their PIDs.
+# -f: search the full command line, not just the process name, to specifically match the script name.
+# -o: return only the oldest (first) match, useful if multiple are somehow running.
+PID=$(pgrep -f -o "4-to_infinity_and_beyond")
+
+# 2. Check if a PID was found before attempting to kill.
+if [ -n "$PID" ]; then
+    # 3. Use the kill command to terminate the process.
+    # By default, kill sends signal 15 (SIGTERM), which is a graceful termination request.
+    kill "$PID"
+    echo "Terminated process 4-to_infinity_and_beyond with PID $PID"
+else
+    echo "Process 4-to_infinity_and_beyond not found."
+fi
