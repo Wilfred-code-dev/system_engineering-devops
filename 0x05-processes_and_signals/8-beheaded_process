@@ -1,19 +1,4 @@
 #!/usr/bin/env bash
-# File: 8-beheaded_process
-# Description: Forcibly terminates the 7-highlander process using SIGKILL (signal 9).
+# Kills 7-highlander.
 
-# 1. Find the PID of the 7-highlander script.
-# pgrep -f -o: Find PID by full command line, returning the oldest match.
-PID=$(pgrep -f -o "7-highlander")
-
-# 2. Check if a PID was found.
-if [ -n "$PID" ]; then
-    # 3. Use kill to send SIGKILL (signal 9) to the process.
-    # SIGKILL is the only signal that a process cannot trap or ignore.
-    kill -9 "$PID"
-    
-    # Optional: Confirmation message
-    # echo "Sent SIGKILL (signal 9) to 7-highlander with PID $PID. Process forcibly terminated."
-fi
-
-# The script exits, allowing the shell to return to the prompt.
+pkill -f -SIGKILL 7-highlander
