@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# A Bash script that filters the process list to show only lines containing 'bash'.
+# File: 2-show_your_bash_pid
+# Description: Displays only the processes containing the word "bash" to find the current shell's PID.
 # shellcheck disable=SC2009
 
-ps ax | grep bash
+# List all processes in user-oriented, full format with hierarchy
+# and pipe the output to grep to filter for lines containing 'bash'.
+ps auxf | grep bash
