@@ -2,9 +2,8 @@
 # File: 7-highlander
 # Description: An infinite loop script that handles SIGTERM by printing a message.
 
-# Use trap to catch SIGTERM (signal 15) and execute a command instead of terminating.
-# The command is: echo "I am invincible!!!"
-# Note: The trap command uses the signal number (15) or the signal name (SIGTERM).
+# Use trap to catch SIGTERM (signal 15) and execute a command.
+# The script will continue running after the trap command is executed.
 trap 'echo "I am invincible!!!"' SIGTERM
 
 # Start the infinite loop
